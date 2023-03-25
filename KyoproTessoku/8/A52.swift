@@ -2,11 +2,11 @@ let queryLength = Int(readLine()!)!
 
 var queryType = [Int](repeating: 0, count: 100009)
 var name = [String](repeating: "", count: 100009)
-var outputStack: [String] = []
+var outputQueue: [String] = []
 
 //input
 for i in 0 ..< queryLength {
-    let input = readLine()!.split(separator: " ") // ["1", "title"]
+    let input = readLine()!.split(separator: " ") // ["1", "name"]
 
     let inputQueryType = Int(input[0])!
     queryType[i] = inputQueryType
@@ -20,12 +20,12 @@ for i in 0 ..< queryLength {
 //output
 for i in 0 ..< queryLength {
     if queryType[i] == 1 {
-        outputStack.append(name[i])
+        outputQueue.append(name[i])
     }
     if queryType[i] == 2 {
-        print(outputStack.first!)
+        print(outputQueue.first!)
     }
     if queryType[i] == 3 {
-        outputStack.removeFirst()
+        outputQueue.removeFirst()
     }
 }
